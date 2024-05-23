@@ -1,0 +1,30 @@
+name: nest-exam
+services:
+  backend:
+    build:
+      target: development
+    environment:
+      - DATABASE_URL=postgresql://postgres:mysecretpassword@db/postgres
+    networks:
+      - server-side
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+  db:
+    image: postgres:13.15-alpine3.20
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+    networks:
+      - server-side
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+networks:
+  server-side: {}
+volumes:
+  db-data: {}
