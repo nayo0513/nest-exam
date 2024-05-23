@@ -6,4 +6,4 @@ COPY package-lock.json /code
 RUN npm ci
 FROM base AS development
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start:dev"]
