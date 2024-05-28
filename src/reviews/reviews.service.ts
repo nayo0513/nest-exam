@@ -4,8 +4,8 @@ import { CreateReviewDto } from './dto/create-review.input';
 
 @Injectable()
 export class ReviewsService {
-  findAll() {
-    return dbClient.reviews.findMany();
+  async findAll() {
+    return await dbClient.reviews.findMany();
   }
 
   create(data: CreateReviewDto) {

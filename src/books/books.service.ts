@@ -6,8 +6,8 @@ import { DeleteBookDto } from './dto/delete-book.input';
 
 @Injectable()
 export class BooksService {
-  findAll() {
-    return dbClient.books.findMany();
+  async findAll() {
+    return await dbClient.books.findMany();
   }
 
   create(data: CreateBookDto) {

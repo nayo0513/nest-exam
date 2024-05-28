@@ -7,8 +7,8 @@ import * as argon2 from 'argon2';
 
 @Injectable()
 export class UsersService {
-  findAll() {
-    return dbClient.users.findMany();
+  async findAll() {
+    return await dbClient.users.findMany();
   }
 
   async create(data: CreateUserDto) {

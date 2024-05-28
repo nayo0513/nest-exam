@@ -9,9 +9,9 @@ import { DeleteUserDto } from './dto/delete-user.input';
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
 
-  @Query(() => User)
-  findAllUsers() {
-    return this.usersService.findAll();
+  @Query(() => [User])
+  async findAllUsers() {
+    return await this.usersService.findAll();
   }
 
   @Mutation(() => User)

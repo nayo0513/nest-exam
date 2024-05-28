@@ -21,8 +21,8 @@ type Book {
   id: ID!
   title: String!
   author: String!
-  price: Float!
-  stock: Float!
+  price: Int!
+  stock: Int!
   published_at: DateTime!
   created_at: DateTime!
   updated_at: DateTime!
@@ -41,9 +41,9 @@ type Review {
 }
 
 type Query {
-  findAllBooks: Book!
-  findAllUsers: User!
-  findAllReviews: Review!
+  findAllBooks: [Book!]!
+  findAllUsers: [User!]!
+  findAllReviews: [Review!]!
 }
 
 type Mutation {

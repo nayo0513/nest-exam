@@ -7,9 +7,9 @@ import { CreateReviewDto } from './dto/create-review.input';
 export class ReviewsResolver {
   constructor(private reviewsService: ReviewsService) {}
 
-  @Query(() => Review)
-  findAllReviews() {
-    return this.reviewsService.findAll();
+  @Query(() => [Review])
+  async findAllReviews() {
+    return await this.reviewsService.findAll();
   }
 
   @Mutation(() => Review)

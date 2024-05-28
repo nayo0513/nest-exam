@@ -9,9 +9,9 @@ import { DeleteBookDto } from './dto/delete-book.input';
 export class BooksResolver {
   constructor(private booksService: BooksService) {}
 
-  @Query(() => Book)
-  findAllBooks() {
-    return this.booksService.findAll();
+  @Query(() => [Book])
+  async findAllBooks() {
+    return await this.booksService.findAll();
   }
 
   @Mutation(() => Book)

@@ -1,4 +1,4 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Book {
@@ -11,21 +11,21 @@ export class Book {
   @Field()
   author: string;
 
-  @Field()
+  @Field(() => Int)
   price: number;
 
-  @Field()
+  @Field(() => Int)
   stock: number;
 
-  @Field()
+  @Field(() => Date)
   published_at: Date;
 
-  @Field()
+  @Field(() => Date)
   created_at: Date;
 
-  @Field()
+  @Field(() => Date)
   updated_at: Date;
 
-  @Field({ nullable: true })
-  deleted_at: Date;
+  @Field(() => Date, { nullable: true })
+  deleted_at?: Date;
 }
