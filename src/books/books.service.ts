@@ -28,7 +28,8 @@ export class BooksService {
       id: data.id,
       title: data.title ?? prevData.title,
       author: data.author ?? prevData.author,
-      description: data.description ?? prevData.description,
+      price: data.price ?? prevData.price,
+      stock: data.stock ?? prevData.stock,
       published_at: data.published_at ?? prevData.published_at,
     };
 

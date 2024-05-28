@@ -21,7 +21,8 @@ type Book {
   id: ID!
   title: String!
   author: String!
-  description: String!
+  price: Float!
+  stock: Float!
   published_at: DateTime!
   created_at: DateTime!
   updated_at: DateTime!
@@ -45,15 +46,17 @@ type Mutation {
 input CreateBookDto {
   title: String!
   author: String!
-  description: String
-  published_at: DateTime
+  price: Float!
+  stock: Float!
+  published_at: DateTime!
 }
 
 input UpdateBookDto {
   id: Int!
   title: String!
   author: String!
-  description: String!
+  price: Float!
+  stock: Float!
   published_at: DateTime!
 }
 

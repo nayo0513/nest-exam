@@ -1,10 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsDate, IsOptional, IsString, MaxLength } from 'class-validator';
-import {
-  MAX_AUTHOR_LENGTH,
-  MAX_DESCRIPTION_LENGTH,
-  MAX_TITLE_LENGTH,
-} from './consts';
+import { IsDate, IsInt, IsString, MaxLength } from 'class-validator';
+import { MAX_AUTHOR_LENGTH, MAX_TITLE_LENGTH } from './consts';
 
 @InputType()
 export class CreateBookDto {
@@ -18,14 +14,15 @@ export class CreateBookDto {
   @MaxLength(MAX_AUTHOR_LENGTH)
   author: string;
 
-  @Field({ nullable: true })
-  @IsOptional()
-  @IsString()
-  @MaxLength(MAX_DESCRIPTION_LENGTH)
-  description?: string;
+  @Field()
+  @IsInt()
+  price: number;
 
-  @Field(() => Date, { nullable: true })
-  @IsOptional()
+  @Field()
+  @IsInt()
+  stock: number;
+
+  @Field(() => Date)
   @IsDate()
-  published_at?: Date;
+  published_at: Date;
 }

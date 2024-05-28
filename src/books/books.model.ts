@@ -12,7 +12,10 @@ export class Book {
   author: string;
 
   @Field()
-  description: string;
+  price: number;
+
+  @Field()
+  stock: number;
 
   @Field()
   published_at: Date;

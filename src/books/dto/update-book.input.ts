@@ -6,11 +6,7 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator';
-import {
-  MAX_AUTHOR_LENGTH,
-  MAX_DESCRIPTION_LENGTH,
-  MAX_TITLE_LENGTH,
-} from './consts';
+import { MAX_AUTHOR_LENGTH, MAX_TITLE_LENGTH } from './consts';
 
 @InputType()
 export class UpdateBookDto {
@@ -32,9 +28,13 @@ export class UpdateBookDto {
 
   @Field()
   @IsOptional()
-  @IsString()
-  @MaxLength(MAX_DESCRIPTION_LENGTH)
-  description?: string;
+  @IsInt()
+  price?: number;
+
+  @Field()
+  @IsOptional()
+  @IsInt()
+  stock?: number;
 
   @Field(() => Date)
   @IsOptional()
