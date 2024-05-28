@@ -22,6 +22,7 @@ model users {
   created_at DateTime  @default(now())
   updated_at DateTime  @updatedAt
   deleted_at DateTime?
+  reviews    reviews[]
 }
 
 model books {
@@ -33,4 +34,18 @@ model books {
   created_at   DateTime  @default(now())
   updated_at   DateTime  @updatedAt
   deleted_at   DateTime?
+  reviews      reviews[]
+}
+
+model reviews {
+  id         Int       @id @default(autoincrement())
+  user       users     @relation(fields: [user_id], references: [id])
+  user_id    Int
+  book       books     @relation(fields: [book_id], references: [id])
+  book_id    Int
+  rating     Int
+  comment    String?
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  deleted_at DateTime?
 }
