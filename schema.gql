@@ -29,9 +29,21 @@ type Book {
   deleted_at: DateTime
 }
 
+type Review {
+  id: ID!
+  book_id: ID!
+  user_id: ID!
+  rating: Float!
+  comment: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
 type Query {
   findAllBooks: Book!
   findAllUsers: User!
+  findAllReviews: Review!
 }
 
 type Mutation {
@@ -41,6 +53,7 @@ type Mutation {
   createUser(create: CreateUserDto!): User!
   updateUser(update: UpdateUserDto!): User!
   deleteUser(delete: DeleteUserDto!): User!
+  createReview(create: CreateReviewDto!): Review!
 }
 
 input CreateBookDto {
@@ -53,10 +66,10 @@ input CreateBookDto {
 
 input UpdateBookDto {
   id: Int!
-  title: String!
-  author: String!
-  price: Float!
-  stock: Float!
+  title: String
+  author: String
+  price: Float
+  stock: Float
   published_at: DateTime!
 }
 
@@ -79,4 +92,11 @@ input UpdateUserDto {
 
 input DeleteUserDto {
   id: Int!
+}
+
+input CreateReviewDto {
+  book_id: ID!
+  user_id: ID!
+  rating: Int!
+  comment: String
 }

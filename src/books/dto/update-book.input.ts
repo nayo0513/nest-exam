@@ -14,24 +14,24 @@ export class UpdateBookDto {
   @IsInt()
   id: number;
 
-  @Field()
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
   @MaxLength(MAX_TITLE_LENGTH)
   title?: string;
 
-  @Field()
+  @Field({ nullable: true })
   @IsOptional()
   @IsString()
   @MaxLength(MAX_AUTHOR_LENGTH)
   author?: string;
 
-  @Field()
+  @Field({ nullable: true })
   @IsOptional()
   @IsInt()
   price?: number;
 
-  @Field()
+  @Field({ nullable: true })
   @IsOptional()
   @IsInt()
   stock?: number;
