@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-users.input';
+import { CreateUserDto } from './dto/create-user.input';
 import dbClient from '../dbClient';
-import { UpdateUsersDto } from './dto/update-users.input';
-import { DeleteUsersDto } from './dto/delete-users.input';
+import { UpdateUserDto } from './dto/update-user.input';
+import { DeleteUserDto } from './dto/delete-user.input';
 import * as argon2 from 'argon2';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class UsersService {
     });
   }
 
-  async update(data: UpdateUsersDto) {
+  async update(data: UpdateUserDto) {
     const prevData = await dbClient.users.findUnique({
       where: { id: data.id },
     });
@@ -46,7 +46,7 @@ export class UsersService {
     });
   }
 
-  async delete(data: DeleteUsersDto) {
+  async delete(data: DeleteUserDto) {
     const prevData = await dbClient.users.findUnique({
       where: { id: data.id },
     });

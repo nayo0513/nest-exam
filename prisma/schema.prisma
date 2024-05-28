@@ -23,3 +23,14 @@ model users {
   updated_at DateTime  @updatedAt
   deleted_at DateTime?
 }
+
+model books {
+  id           Int       @id @default(autoincrement())
+  title        String
+  author       String
+  description  String?
+  published_at DateTime?
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @updatedAt
+  deleted_at   DateTime?
+}

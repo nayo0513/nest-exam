@@ -9,7 +9,7 @@ import {
 } from './consts';
 
 @InputType()
-export class UpdateUsersDto {
+export class UpdateUserDto {
   @Field(() => Int)
   @IsInt()
   id: number;

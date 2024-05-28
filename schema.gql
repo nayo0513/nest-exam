@@ -17,14 +17,48 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Book {
+  id: ID!
+  title: String!
+  author: String!
+  description: String!
+  published_at: DateTime!
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
 type Query {
-  users: User!
+  findAllBooks: Book!
+  findAllUsers: User!
 }
 
 type Mutation {
-  create(create: CreateUserDto!): User!
-  update(update: UpdateUsersDto!): User!
-  delete(delete: DeleteUsersDto!): User!
+  createBook(create: CreateBookDto!): Book!
+  updateBook(update: UpdateBookDto!): Book!
+  deleteBook(delete: DeleteBookDto!): Book!
+  createUser(create: CreateUserDto!): User!
+  updateUser(update: UpdateUserDto!): User!
+  deleteUser(delete: DeleteUserDto!): User!
+}
+
+input CreateBookDto {
+  title: String!
+  author: String!
+  description: String
+  published_at: DateTime
+}
+
+input UpdateBookDto {
+  id: Int!
+  title: String!
+  author: String!
+  description: String!
+  published_at: DateTime!
+}
+
+input DeleteBookDto {
+  id: Int!
 }
 
 input CreateUserDto {
@@ -33,13 +67,13 @@ input CreateUserDto {
   password: String!
 }
 
-input UpdateUsersDto {
+input UpdateUserDto {
   id: Int!
   email: String
   name: String
   password: String
 }
 
-input DeleteUsersDto {
+input DeleteUserDto {
   id: Int!
 }
