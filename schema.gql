@@ -59,22 +59,22 @@ type Mutation {
 input CreateBookDto {
   title: String!
   author: String!
-  price: Float!
-  stock: Float!
+  price: Int!
+  stock: Int!
   published_at: DateTime!
 }
 
 input UpdateBookDto {
-  id: Int!
+  id: ID!
   title: String
   author: String
-  price: Float
-  stock: Float
+  price: Int
+  stock: Int
   published_at: DateTime!
 }
 
 input DeleteBookDto {
-  id: Int!
+  id: ID!
 }
 
 input CreateUserDto {
@@ -84,14 +84,14 @@ input CreateUserDto {
 }
 
 input UpdateUserDto {
-  id: Int!
+  id: ID!
   email: String
   name: String
   password: String
 }
 
 input DeleteUserDto {
-  id: Int!
+  id: ID!
 }
 
 input CreateReviewDto {

@@ -1,4 +1,4 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { IsEmail, IsInt, IsOptional, Length, MaxLength } from 'class-validator';
 import {
   MAX_EMAIL_LENGTH,
@@ -10,7 +10,7 @@ import {
 
 @InputType()
 export class UpdateUserDto {
-  @Field(() => Int)
+  @Field(() => ID)
   @IsInt()
   id: number;
 
