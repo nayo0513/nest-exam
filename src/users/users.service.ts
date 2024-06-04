@@ -17,6 +17,12 @@ export class UsersService {
     });
   }
 
+  async findById(id: number) {
+    return await dbClient.users.findUnique({
+      where: { id },
+    });
+  }
+
   async create(data: CreateUserDto) {
     const newData = {
       email: data.email,
