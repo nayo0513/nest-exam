@@ -40,15 +40,25 @@ type Review {
   deleted_at: DateTime
 }
 
+type LoginOutput {
+  token: String!
+}
+
 type Query {
   findAllBooks: [Book!]!
   searchBook(search: SearchBookDto!): [Book!]!
   findAllUsers: [User!]!
   findAllReviews: [Review!]!
+  login(login: LoginUserDto!): LoginOutput!
 }
 
 input SearchBookDto {
   word: String!
+}
+
+input LoginUserDto {
+  email: String!
+  password: String!
 }
 
 type Mutation {
@@ -70,7 +80,7 @@ input CreateBookDto {
 }
 
 input UpdateBookDto {
-  id: ID!
+  id: Int!
   title: String
   author: String
   price: Int
@@ -79,7 +89,7 @@ input UpdateBookDto {
 }
 
 input DeleteBookDto {
-  id: ID!
+  id: Int!
 }
 
 input CreateUserDto {
@@ -89,19 +99,19 @@ input CreateUserDto {
 }
 
 input UpdateUserDto {
-  id: ID!
+  id: Int!
   email: String
   name: String
   password: String
 }
 
 input DeleteUserDto {
-  id: ID!
+  id: Int!
 }
 
 input CreateReviewDto {
-  book_id: ID!
-  user_id: ID!
+  book_id: Int!
+  user_id: Int!
   rating: Int!
   comment: String
 }

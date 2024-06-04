@@ -11,6 +11,12 @@ export class UsersService {
     return await dbClient.users.findMany();
   }
 
+  async findByEmail(email: string) {
+    return await dbClient.users.findUnique({
+      where: { email },
+    });
+  }
+
   async create(data: CreateUserDto) {
     const newData = {
       email: data.email,

@@ -1,9 +1,9 @@
-import { Field, ID, InputType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 import { IsInt } from 'class-validator';
 
 @InputType()
 export class DeleteUserDto {
-  @Field(() => ID)
+  @Field(() => Int)
   @IsInt()
   id: number;
 }

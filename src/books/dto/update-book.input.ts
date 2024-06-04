@@ -1,4 +1,4 @@
-import { Field, ID, InputType, Int } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 import {
   IsDate,
   IsInt,
@@ -10,7 +10,7 @@ import { MAX_AUTHOR_LENGTH, MAX_TITLE_LENGTH } from './consts';
 
 @InputType()
 export class UpdateBookDto {
-  @Field(() => ID)
+  @Field(() => Int)
   @IsInt()
   id: number;
 
