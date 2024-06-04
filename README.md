@@ -8,9 +8,6 @@ prisma migrate deploy
 ```
 
 ## TODO
-- role
-- pagenation?
-- graphql schema 見直す?
+- user tableにrole columnを追加する。
+- userやreviewの削除はroleがadminのuserしかできないようにする。
 - test追加
-- 認可
-  - guards?
