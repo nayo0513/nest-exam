@@ -42,8 +42,13 @@ type Review {
 
 type Query {
   findAllBooks: [Book!]!
+  searchBook(search: SearchBookDto!): [Book!]!
   findAllUsers: [User!]!
   findAllReviews: [Review!]!
+}
+
+input SearchBookDto {
+  word: String!
 }
 
 type Mutation {

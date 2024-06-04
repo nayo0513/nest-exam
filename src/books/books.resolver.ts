@@ -4,6 +4,7 @@ import { Book } from './books.model';
 import { CreateBookDto } from './dto/create-book.input';
 import { UpdateBookDto } from './dto/update-book.input';
 import { DeleteBookDto } from './dto/delete-book.input';
+import { SearchBookDto } from './dto/search-book.input';
 
 @Resolver(() => Book)
 export class BooksResolver {
@@ -12,6 +13,11 @@ export class BooksResolver {
   @Query(() => [Book])
   async findAllBooks() {
     return await this.booksService.findAll();
+  }
+
+  @Query(() => [Book])
+  async searchBook(@Args('search') data: SearchBookDto) {
+    return await this.booksService.search(data);
   }
 
   @Mutation(() => Book)

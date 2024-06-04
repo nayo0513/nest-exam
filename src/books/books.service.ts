@@ -3,11 +3,26 @@ import dbClient from 'src/dbClient';
 import { CreateBookDto } from './dto/create-book.input';
 import { UpdateBookDto } from './dto/update-book.input';
 import { DeleteBookDto } from './dto/delete-book.input';
+import { SearchBookDto } from './dto/search-book.input';
 
 @Injectable()
 export class BooksService {
   async findAll() {
     return await dbClient.books.findMany();
+  }
+
+  async search(data: SearchBookDto) {
+    return dbClient.books.findMany({
+      where: {
+        OR: [
+          {
+            title: {
+              contains: data.word,
+            },
+          },
+        ],
+      },
+    });
   }
 
   create(data: CreateBookDto) {
