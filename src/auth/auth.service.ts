@@ -17,7 +17,7 @@ export class AuthService {
     if (!user || !(await argon2.verify(user.password, data.password))) {
       throw new UnauthorizedException();
     }
-    const payload = { email: user.email, sub: user.id };
+    const payload = { email: user.email, id: user.id };
     return {
       token: await this.jwtService.signAsync(payload),
     };
